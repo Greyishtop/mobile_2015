@@ -1,6 +1,7 @@
-package ru.isu.mobile_2015.prj_04;
+package com.example.prj_04;
 
-import android.content.Intent;
+import android.util.Log;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -13,9 +14,6 @@ import java.net.URL;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/**
- * Created by sergey on 10/11/15.
- */
 public class VK {
     public static String getAuthUrl(String clientId, String scope) {
         return "https://oauth.vk.com/authorize" +
@@ -48,14 +46,14 @@ public class VK {
         try {
             if (params.length() > 0 && params.charAt(params.length() - 1) != '&') params += '&';
 
-            URL url = new URL("https://api.vk.com/method/"+method+"?"+params+"access_token=" + token);
+            URL url = new URL("https://api.vk.com/method/" + method + "?" + params + "access_token=" + token);
             HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
             try {
                 BufferedReader in = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
                 StringBuilder sb = new StringBuilder();
 
                 char[] tl = new char[8 * 1024];
-                while(true) {
+                while (true) {
                     int len = in.read(tl);
                     if (len > 0) {
                         sb.append(tl, 0, len);
@@ -63,7 +61,7 @@ public class VK {
                         break;
                     }
                 }
-
+                Log.d("LOG",sb.toString());
                 return new JSONObject(sb.toString());
             } catch (JSONException e) {
                 e.printStackTrace();

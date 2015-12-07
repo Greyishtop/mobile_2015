@@ -1,4 +1,4 @@
-package ru.isu.mobile_2015.prj_04;
+package com.example.prj_04;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -6,9 +6,6 @@ import android.os.Bundle;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-/**
- * Created by sergey on 10/11/15.
- */
 public class AuthActivity extends Activity {
     public final static int ACCESS_TOKEN_TAKEN = 1;
     WebView webView;
@@ -18,7 +15,7 @@ public class AuthActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.auth);
 
-        webView = (WebView)findViewById(R.id.webView);
+        webView = (WebView) findViewById(R.id.webView);
 
         webView.loadUrl(VK.getAuthUrl("5141808", "2097150"));
 
