@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent" android:gravity="center_vertical" android:background="#ff65de56">
+    <Button android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/insertTask" android:text="@string/add" android:onClick="onClickAdd"
+            android:background="@android:drawable/editbox_background_normal" android:textColor="#ff000000"
+            android:typeface="monospace" android:textStyle="bold"/>
+    <EditText android:layout_width="match_parent"
+              android:layout_height="100dp"
+            android:id="@+id/entertaskfield" android:text="@string/enter" android:gravity="center_vertical|center_horizontal"
+              android:textColor="#ff8f908d" android:onClick="onClickOnField" android:typeface="monospace"
+              android:textStyle="italic"/>
+</LinearLayout>
